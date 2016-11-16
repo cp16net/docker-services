@@ -1,0 +1,32 @@
+version: '2'
+services:
+
+  auth:
+    image: exercise:auth
+    build: ./auth_service
+    links:
+      - mongo
+    environment:
+      - MONGODB=mongodb://mongo:21017/
+
+  data:
+    image: exercise:data
+    build: ./data_service
+    links:
+      - mongo
+    environment:
+      - MONGODB=mongodb://mongo:21017/
+
+  mongo:
+    image: exercise:mongo
+    build: ./mongo
+
+  proxy:
+    image: exercise:nginx
+    build: ./nginx
+    links:
+      - data
+      - auth
+    ports:
+      - "80:80"
+
