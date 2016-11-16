@@ -38,7 +38,7 @@ def accounts():
 @app.route("/health")
 def health():
     logger.debug("Get Health");
-    return json.jsonify(healthy='true');
+    return json.jsonify(service="data",healthy='true');
 
 if __name__ == "__main__":
     dao = MongoDao(os.environ['MONGODB']);

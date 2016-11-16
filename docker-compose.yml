@@ -7,7 +7,7 @@ services:
     links:
       - mongo
     environment:
-      - MONGODB=mongodb://mongo:21017/
+      - MONGODB=mongodb://mongo:27017
 
   data:
     image: exercise:data
@@ -15,7 +15,7 @@ services:
     links:
       - mongo
     environment:
-      - MONGODB=mongodb://mongo:21017/
+      - MONGODB=mongodb://mongo:27017
 
   mongo:
     image: exercise:mongo
