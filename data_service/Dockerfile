@@ -3,7 +3,7 @@ MAINTAINER Craig Vyvial
 
 COPY . /app
 WORKDIR /app
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt && pip install gunicorn
 
-ENTRYPOINT ["python"]
-CMD ["api.py"]
+#ENTRYPOINT ["python"]
+#CMD ["api.py"]

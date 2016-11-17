@@ -6,12 +6,13 @@ import os
 
 app = Flask(__name__)
 logger = app.logger
-dao = None;
+db = MongoDao();
 
 @app.route("/accounts", methods=['GET', 'POST'])
 def accounts():
     logger.debug("Get Accounts");
     token = request.headers.get('token');
+    dao = db.get_connection()
     if not dao.authenticate(token):
         return Response(status=401)
 
@@ -41,5 +42,4 @@ def health():
     return json.jsonify(service="data",healthy='true');
 
 if __name__ == "__main__":
-    dao = MongoDao(os.environ['MONGODB']);
     app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)

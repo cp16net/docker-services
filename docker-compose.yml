@@ -8,6 +8,7 @@ services:
       - mongo
     environment:
       - MONGODB=mongodb://mongo:27017
+    command: gunicorn -w 2 -b :5000 api:app
 
   data:
     image: exercise:data
@@ -16,6 +17,7 @@ services:
       - mongo
     environment:
       - MONGODB=mongodb://mongo:27017
+    command: gunicorn -w 2 -b :5000 api:app
 
   mongo:
     image: exercise:mongo

@@ -1,13 +1,21 @@
 from pymongo import MongoClient
 import hashlib, random
+import os
 
 class MongoDao:
 
-    def __init__(self, connectString):
-        self._client = self.__connect(connectString);
+    def __init__(self, connectString=None):
+        self._connectionstring = connectString or os.environ['MONGODB']
+        self._client = None
+
+    def get_connection(self):
+        if self._client != None:
+            return self
+        self._client = self.__connect(self._connectionstring);
         self._auth_db = self._client.auth;
         self._users = self._auth_db.users;
         self._tokens = self._auth_db.tokens;
+        return self
 
     def __connect(self, connectString):
         try:
