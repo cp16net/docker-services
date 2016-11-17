@@ -2,6 +2,13 @@
 
 Make a build deployment of the auth and data api services on /api/auth and /api/data repectively.
 
+# Requirements
+
+* [docker](https://docs.docker.com/engine/installation/) >=1.10.0
+* [docker-compose](https://docs.docker.com/compose/install/) >=1.6.0
+* [make](https://www.gnu.org/software/make/) installed
+* [jq](https://stedolan.github.io/jq/) installed in $PATH (used with tests)
+
 # Getting started
 
     make            # list the options to run make with
