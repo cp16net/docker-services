@@ -43,6 +43,8 @@ Make a build deployment of the auth and data api services on /api/auth and /api/
 
 # Running with Docker Compose
 
+These are the commands you can run but I suggest using the make commands above unless you need to dive into things further.
+
     docker-compose build --pull
     docker-compose up -d
     docker-compose down --rmi all
