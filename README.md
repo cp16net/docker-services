@@ -1,6 +1,6 @@
 # Dev Environment Exercise
 
-[Deployment Details](Exercide.md)
+[Deployment Details](Exercise.md)
 
 ## Background
 The company you work for is building a micro-service based platform. They have completed their first sprint of work and are ready to begin preparing to ship it. Being a DevOps genius, you know that it will be difficult to reproduce bugs and increase  ownership if there's not an easy way to  reliably run these services locally as you would in production. At the same time, you want to get some automation that can be reused in production.
